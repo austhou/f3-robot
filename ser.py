@@ -80,15 +80,18 @@ commout()
 commthread = ReadThread()
 commthread.start()
 
-mainHandle = tk.Tk()
-mainHandle.bind_all('<Key>', handleKeypress)
-mainHandle.withdraw()
-mainHandle.mainloop()
+#mainHandle = tk.Tk()
+#mainHandle.bind_all('<Key>', handleKeypress)
+#mainHandle.withdraw()
+#mainHandle.mainloop()
 
 print 'END----!!'
-x = detectKey()
+#x = detectKey()
+
+x = raw_input('$')
+x = x + '\n'
 while 1:
-    '''if x == 'rd':
+    if x == 'rd':
         commout()
     else:
         ser.write(x)
@@ -103,21 +106,23 @@ while 1:
         break
     if x == 'kcstart':
         keycont()
-    
+
+    x = raw_input('$')
     x = x + '\n'
     
-
+'''
     x = detectKey()
     commout()
     if x != '':
         execute(comm=x, ser=ser)
 
-    '''
+    
     #x = detectKey
     print(detectKey())
     #x = raw_input('$')
     #x = x + '\n'
-    #ser.write(x)
+    ser.write('ready \n')
+    '''
     
 print 'a'
 ser.close()
